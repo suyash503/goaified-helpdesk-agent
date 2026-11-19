@@ -194,8 +194,10 @@ little between runs because a 3B model isn't fully consistent even at temperatur
 
 ## What I'd improve with more time
 
-1. Hybrid retrieval (BM25 + vectors) and a cross-encoder re-ranker, which fixed a similar problem
-   in my previous RAG project (hit rate 83% → 97%).
+1. Hybrid retrieval (BM25 keyword search + vectors, merged with Reciprocal Rank Fusion), which
+   raised hit rate from 83% to 97% in my previous RAG project, plus a cross-encoder re-ranker
+   (MRR 0.81 → 0.90 there). Keyword matching would help exactly where the small embedding model
+   struggles here.
 2. An LLM-based injection classifier as a second layer behind the regex rules, and checking
    retrieved text for indirect injection.
 3. Real auth: employee ID from the login session, role-based access in the MCP server.
