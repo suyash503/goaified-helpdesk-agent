@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: helpdesk-postgres
+    environment:
+      POSTGRES_DB: helpdesk
+      POSTGRES_USER: helpdesk_admin
+      POSTGRES_PASSWORD: admin_dev_only
+    ports:
+      - "5433:5432"   # 5433 on the host so it doesn't clash with a local Postgres
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helpdesk_admin -d helpdesk"]
+      interval: 3s
+      retries: 20
+
+volumes:
+  pgdata:

@@ -1,0 +1,6 @@
+.venv/
+.chroma/
+.env
+__pycache__/
+.pytest_cache/
+LOOM_SCRIPT.md

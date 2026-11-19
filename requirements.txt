@@ -1,0 +1,12 @@
+langgraph>=0.4
+langchain-core>=0.3
+langchain-ollama>=0.3
+chromadb>=1.0
+mcp>=2.3,<3
+psycopg[binary]>=3.2
+python-dotenv>=1.0
+pydantic>=2.7
+pytest>=8.0
+# Optional: only if you switch LLM_PROVIDER away from ollama
+# langchain-google-genai
+# langchain-openai
